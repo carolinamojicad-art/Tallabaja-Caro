@@ -252,7 +252,76 @@
           }
         ]
       }
-    ]
+    ],
+    "publicMetrics": {
+      "eps": [
+        {
+          "label": "Fiduprevisora",
+          "value": 8
+        },
+        {
+          "label": "Salud Mía",
+          "value": 16
+        },
+        {
+          "label": "Famisanar",
+          "value": 14
+        },
+        {
+          "label": "Coomeva Medicina Prepagada",
+          "value": 1
+        }
+      ],
+      "imcEdad": [
+        {
+          "label": "MENOS 2 A MENOS 1",
+          "value": 7
+        },
+        {
+          "label": "CERO A MAS UNO",
+          "value": 13
+        },
+        {
+          "label": "MENOS 1 A CERO",
+          "value": 8
+        },
+        {
+          "label": "MAS 2",
+          "value": 1
+        },
+        {
+          "label": "MAS 1 MAS 2",
+          "value": 2
+        },
+        {
+          "label": "0.66",
+          "value": 1
+        },
+        {
+          "label": "Pendiente",
+          "value": 2
+        },
+        {
+          "label": "MAS UNO A MAS 2",
+          "value": 2
+        },
+        {
+          "label": "MENOR A MENOS 2",
+          "value": 3
+        }
+      ],
+      "patientsWithAlerts": 39,
+      "alertsByType": {
+        "seguimiento": 23,
+        "cita": 22,
+        "contacto": 31,
+        "llamada": 7,
+        "inasistencia": 10,
+        "sexo": 2,
+        "mediciones": 1
+      },
+      "alertEvaluationDate": "2026-10-23"
+    }
   },
   "2026": {
     "total": 148,
@@ -487,6 +556,73 @@
           }
         ]
       }
-    ]
+    ],
+    "publicMetrics": {
+      "eps": [
+        {
+          "label": "Internacional",
+          "value": 2
+        },
+        {
+          "label": "Salud Mía",
+          "value": 64
+        },
+        {
+          "label": "Famisanar",
+          "value": 36
+        },
+        {
+          "label": "Fiduprevisora",
+          "value": 45
+        },
+        {
+          "label": "EPS Sura",
+          "value": 1
+        }
+      ],
+      "imcEdad": [
+        {
+          "label": "Pendiente",
+          "value": 120
+        },
+        {
+          "label": "MAS 1 MAS 2",
+          "value": 4
+        },
+        {
+          "label": "MENOS 1 A 0",
+          "value": 11
+        },
+        {
+          "label": "0 A MAS 1",
+          "value": 8
+        },
+        {
+          "label": "MENOS 2 A MENOS 1",
+          "value": 3
+        },
+        {
+          "label": "MAS 2 A MAS 3",
+          "value": 1
+        },
+        {
+          "label": "MENOS 2",
+          "value": 1
+        }
+      ],
+      "patientsWithAlerts": 148,
+      "alertsByType": {
+        "seguimiento": 141,
+        "edad": 20,
+        "cita": 81,
+        "llamada": 61,
+        "contacto": 95,
+        "control": 5,
+        "mediciones": 18,
+        "sexo": 2,
+        "inasistencia": 4
+      },
+      "alertEvaluationDate": "2026-10-23"
+    }
   }
 }
