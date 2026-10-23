@@ -25,6 +25,6 @@ export interface TallaBajaPatient {
   planControl: string;
   proximoContacto: string;
 }
-const sources = import.meta.glob<{default: Record<'2025'|'2026', TallaBajaPatient[]>}>('./tallaBajaPatients.local.json', {eager: true});
-const patients: Record<'2025'|'2026', TallaBajaPatient[]> = sources['./tallaBajaPatients.local.json']?.default ?? {'2025': [], '2026': []};
+import localPatients from 'virtual:talla-baja-patients';
+const patients = localPatients as Record<'2025'|'2026', TallaBajaPatient[]>;
 export default patients;
