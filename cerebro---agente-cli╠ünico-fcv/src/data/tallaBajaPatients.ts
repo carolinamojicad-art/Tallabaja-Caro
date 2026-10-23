@@ -1,6 +1,7 @@
-// Patient records stay on the local computer and are never committed.
+// User-authorized fictional sample. No patient names or free-text observations are included.
 export interface TallaBajaPatient {
   id: string;
+  citaControlReferido?: string;
   documento: string;
   paciente: string;
   edad: string;
@@ -25,6 +26,6 @@ export interface TallaBajaPatient {
   planControl: string;
   proximoContacto: string;
 }
-import localPatients from 'virtual:talla-baja-patients';
+import localPatients from './tallaBajaSample.json';
 const patients = localPatients as Record<'2025'|'2026', TallaBajaPatient[]>;
 export default patients;

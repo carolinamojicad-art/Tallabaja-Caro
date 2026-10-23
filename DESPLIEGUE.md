@@ -13,4 +13,4 @@ El script de compilación detecta la subcarpeta de la aplicación, instala sus d
 
 El archivo render.yaml se aplica mediante Blueprint; no actualiza automáticamente servicios creados manualmente.
 
-Los registros identificables se excluyen del repositorio. La compilación pública se cancela si encuentra el archivo privado de pacientes. La tabla pública permanece vacía hasta disponer de una fuente autorizada con controles de acceso.
+La usuaria confirmó que la base es ficticia y autorizó su publicación con ID y documento, sin nombres. La muestra publicada está en tallaBajaSample.json y excluye nombres, teléfonos, correos y observaciones de texto libre. El archivo local original permanece excluido de Git.

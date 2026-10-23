@@ -1,6 +1,6 @@
 import { parsePatientAge } from './patientAge';
 export type PatientAlert = { key: string; label: string; detail: string };
-export function getTallaBajaAlerts(row: {seguimiento:string; edad:string; sexo:string; peso:string; talla:string; imc:string; observacionesLlamada?:string; citasPendientes?:string; asistencia?:string; ultimaLlamada?:string; proximoControl?:string; proximoContacto?:string; proximoContactoOriginal?:string}): PatientAlert[] {
+export function getTallaBajaAlerts(row: {seguimiento:string; edad:string; sexo:string; peso:string; talla:string; imc:string; observacionesLlamada?:string; citasPendientes?:string; asistencia?:string; ultimaLlamada?:string; proximoControl?:string; proximoContacto?:string; proximoContactoOriginal?:string; citaControlReferido?:string}): PatientAlert[] {
   const alerts: PatientAlert[] = [];
   const clean = (s:string) => s.trim().toLowerCase();
   if (clean(row.seguimiento).startsWith('pendiente')) alerts.push({key:'seguimiento',label:'Seguimiento pendiente',detail:'La base registra seguimiento pendiente; requiere revisión de gestión.'});
@@ -16,6 +16,7 @@ export function getTallaBajaAlerts(row: {seguimiento:string; edad:string; sexo:s
   else if (normalize(pending).startsWith('pendiente')) alerts.push({key:'cita',label:'Cita por confirmar',detail:'Fuente: Próximas citas pendientes. La base indica pendiente sin especialidad o fecha confirmada.'});
   const attendance = normalize(row.asistencia || '');
   if (/no asiste|no ha podido|no asistio/.test(attendance)) alerts.push({key:'inasistencia',label:'Inasistencia o barrera de agenda',detail:'Fuente: Asistencia a citas del programa. ' + row.asistencia});
+  if (row.citaControlReferido === 'Sí') alerts.push({key:'llamada',label:'Llamada · revisar cita o control',detail:'Referencia a cita o control detectada en las observaciones de la base ficticia. El texto libre no se incluye en la muestra publicada.'});
   const notes = row.observacionesLlamada || '';
   const sentences = notes.split(/(?<=[.!?;])\s+|\n/).filter(sentence => /cita|control|endocrin|pediatr/.test(normalize(sentence)));
   const reference = sentences.find(sentence => /pendien|programad|agend|proxim|espera|no ha podido|sin cita|no cuenta|no tiene|demora|meses|mes y|seman/.test(normalize(sentence)) && !/sin pendientes|no tiene pendientes|no hay pendientes/.test(normalize(sentence)));
