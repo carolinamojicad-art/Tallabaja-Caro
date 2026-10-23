@@ -1,14 +1,16 @@
 # Publicar Talla Baja en Render
 
-Para un sitio estático existente, configurar:
+Configuración para el sitio estático existente:
 
-- Root Directory: `cerebro---agente-cli╠ünico-fcv`
-- Build Command: `npm ci && npm run build`
-- Publish Directory: `dist`
-- Variable de entorno: `NODE_VERSION=24`
+- Root Directory: vacío (raíz del repositorio).
+- Build Command: npm run build
+- Publish Directory: dist
+- Variable de entorno: NODE_VERSION=24
 
-Guardar y ejecutar Manual Deploy → Deploy latest commit.
+Guardar cada cambio y ejecutar Manual Deploy → Deploy latest commit.
 
-El archivo render.yaml permite crear el servicio mediante un Blueprint. Agregarlo al repositorio no modifica automáticamente un servicio creado manualmente.
+El script de compilación detecta la subcarpeta de la aplicación, instala sus dependencias y genera dist/index.html en la raíz. No se necesita escribir el nombre de la subcarpeta.
 
-El sitio publicado no incluye registros identificables de pacientes. El archivo local de pacientes está excluido de Git; por ello, el listado público estará vacío. No cargar ni desplegar ese archivo en un sitio público. El corte agregado no equivale a sincronización clínica.
+El archivo render.yaml se aplica mediante Blueprint; no actualiza automáticamente servicios creados manualmente.
+
+Los registros identificables se excluyen del repositorio. La compilación pública se cancela si encuentra el archivo privado de pacientes. La tabla pública permanece vacía hasta disponer de una fuente autorizada con controles de acceso.
