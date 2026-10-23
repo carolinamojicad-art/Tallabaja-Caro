@@ -1,10 +1,35 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
+import { PatientsTable } from './PatientsTable';
+import { PatientDetailModal } from './PatientDetailModal';
+import { generateSyntheticPatients } from '../data/mockClinicalData';
+import { Paciente } from '../types/clinical';
+
 export function TallaBajaDemoTable({year}:{year:string}) {
- const [page,setPage]=useState(1);
- const [search,setSearch]=useState('');
- // Independent demonstration records: never map source patients to pseudonyms.
- const records=Array.from({length:20},(_,index)=>({documento:`DEMO-${String(index+1).padStart(3,'0')}`,id:`PRUEBA-${String(index+1).padStart(3,'0')}`,nombre:`Paciente de prueba ${index%2===0?'F':'M'}-${String(index+1).padStart(2,'0')}`}));
- const filtered=records.filter(row=>`${row.documento} ${row.id} ${row.nombre}`.toLowerCase().includes(search.toLowerCase()));
- const pages=Math.max(1,Math.ceil(filtered.length/10)); const current=Math.min(page,pages);
- return <section id="pacientes-talla-baja" className="space-y-3 scroll-mt-24"><div className="flex flex-col sm:flex-row justify-between gap-3"><div><h2 className="text-xl font-bold text-slate-900">Listado de demostración</h2><p className="text-xs text-slate-500 mt-1">20 registros completamente ficticios · independientes del corte {year}</p></div><input aria-label="Buscar registro de demostración" placeholder="Buscar paciente de prueba…" value={search} onChange={e=>{setSearch(e.target.value);setPage(1);}} className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm max-w-full" /></div><div className="rounded-2xl border border-slate-200 bg-white overflow-hidden"><div className="overflow-x-auto"><table className="w-full min-w-[480px] text-sm text-left"><thead className="bg-slate-50 text-xs uppercase text-slate-400"><tr><th className="p-4">Documento ficticio</th><th className="p-4">ID de prueba</th><th className="p-4">Paciente</th></tr></thead><tbody>{filtered.slice((current-1)*10,current*10).map(row=><tr key={row.id} className="border-t border-slate-100 hover:bg-violet-50/40"><td className="p-4 font-mono text-xs text-slate-700">{row.documento}</td><td className="p-4 font-mono text-xs text-slate-400">{row.id}</td><td className="p-4 font-medium text-slate-900">{row.nombre}</td></tr>)}{filtered.length===0&&<tr><td colSpan={3} className="p-6 text-center text-slate-500">No hay coincidencias.</td></tr>}</tbody></table></div><div className="flex justify-between items-center gap-3 p-4 bg-slate-50 text-xs text-slate-600"><span>{filtered.length} registros ficticios</span><div className="flex items-center gap-3"><button disabled={current===1} onClick={()=>setPage(current-1)} className="rounded-lg border p-2 disabled:opacity-30">Anterior</button><span>{current} de {pages}</span><button disabled={current===pages} onClick={()=>setPage(current+1)} className="rounded-lg border p-2 disabled:opacity-30">Siguiente</button></div></div></div><p className="text-xs text-slate-500">Esta tabla ilustra el diseño. Sus filas no representan pacientes reales y no se usan para calcular los indicadores ni las alertas del centro.</p></section>;
+ const initial = useMemo(() => generateSyntheticPatients(2,35).map((row,index):Paciente => ({
+  ...row,
+  centroId:38,
+  documento:`DEMO-${String(index+1).padStart(3,'0')}`,
+  idCliente:`PRUEBA-${String(index+1).padStart(3,'0')}`,
+  paciente:`Paciente de prueba ${index%2===0?'F':'M'}-${String(index+1).padStart(2,'0')}`,
+  telMovil:'No disponible · demostración',telCasa:'No disponible',email:'demo@example.invalid',direccion:'Dirección ficticia',
+  viaAcceso:'Ambulatoria',
+  estadoNutricional:'Sin medición',
+  observacionesClinicas:'Registro completamente ficticio para mostrar el diseño. No corresponde a pacientes de la base institucional.',
+  alertas:row.alertas.map(alert=>({...alert,texto:'DEMO · '+alert.texto})),
+ })),[year]);
+ const [records,setRecords] = useState(initial);
+ const [selected,setSelected] = useState<Paciente|null>(null);
+ const [notice,setNotice]=useState('');
+ function resolve(patientId:string,alertId:string) {
+  setRecords(prev=>prev.map(row=>row.idCliente===patientId?{...row,alertas:row.alertas.filter(a=>a.id!==alertId)}:row));
+  setSelected(prev=>prev?{...prev,alertas:prev.alertas.filter(a=>a.id!==alertId)}:null);
+  setNotice('Alerta de demostración retirada de esta sesión.');
+ }
+ return <section id="pacientes-talla-baja" className="space-y-4 scroll-mt-24">
+  <div className="bg-violet-50 border border-violet-200 rounded-xl px-4 py-3"><h2 className="text-sm font-semibold text-violet-900">Tabla de demostración · Talla Baja</h2><p className="text-xs text-violet-700 mt-1">35 pacientes completamente ficticios para mostrar todas las columnas y funciones. Las mediciones, alertas y antecedentes de esta tabla son ejemplos y no corresponden a tus pacientes. Las estadísticas reales del corte {year} se muestran en los gráficos superiores.</p></div>
+  <PatientsTable pacientes={records} onSelectPatient={setSelected} epsFilter={null} onClearEpsFilter={()=>{}} nutritionFilter={null} onClearNutritionFilter={()=>{}} renalStageFilter={null} onClearRenalStageFilter={()=>{}} />
+  <PatientDetailModal paciente={selected} onClose={()=>setSelected(null)} onOpenWhatsAppForPatient={()=>setNotice('Demostración: no se envían mensajes ni se utilizan teléfonos reales.')} onResolveAlert={resolve} />
+  {notice&&<div role="status" className="text-xs rounded-xl border border-violet-200 bg-white p-3 text-violet-700">{notice}<button className="ml-3 underline" onClick={()=>setNotice('')}>Cerrar</button></div>}
+  <p className="text-xs text-slate-500">La clasificación nutricional requiere validación pediátrica: se muestra “Sin medición” para evitar clasificar estos ejemplos con umbrales de adultos. Las acciones de la tabla solo afectan la sesión de demostración.</p>
+ </section>;
 }
