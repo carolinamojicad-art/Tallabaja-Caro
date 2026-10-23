@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+  }
+
+  body {
+    background-color: #f5f5f5;
+    color: #111827;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+}
+
+.page-wrapper {
+  background: linear-gradient(to bottom, #faf7ff 0%, #f5f5f7 100%);
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes icon-turn {
+  from { transform: rotate(-110deg) scale(.7); opacity: .3; }
+  to { transform: rotate(0) scale(1); opacity: 1; }
+}
+
+.page-enter { animation: page-enter .42s cubic-bezier(.22, 1, .36, 1) both; }
+.page-enter-delayed { animation-delay: .1s; }
+
+button {
+  transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease, border-color .16s ease, color .16s ease;
+}
+
+button:not(:disabled):active { transform: scale(.97); }
+.theme-toggle svg { animation: icon-turn .28s cubic-bezier(.22, 1, .36, 1); }
+
+.theme-dark body { background: #0b1120; color: #e2e8f0; }
+.theme-dark .page-wrapper { background: linear-gradient(to bottom, #13102a 0%, #0b1120 100%); }
+.theme-dark header, .theme-dark footer, .theme-dark [class*="bg-white"] { background-color: #151e2e !important; }
+.theme-dark [class*="bg-slate-50"], .theme-dark [class*="bg-slate-100"] { background-color: #1e293b !important; }
+.theme-dark [class*="border-"] { border-color: #334155 !important; }
+.theme-dark [class*="text-slate-"] { color: #dbe5f1 !important; }
+.theme-dark input, .theme-dark textarea, .theme-dark select { background-color: #0f172a !important; color: #e2e8f0; border-color: #475569 !important; }
+.theme-dark .theme-toggle { background: #1e293b !important; color: #fde68a !important; border-color: #475569 !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+button, input, select, textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 3px solid rgb(124 58 237 / 0.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 639px) {
+  html { font-size: 15px; }
+  .page-wrapper main { padding-inline: 1rem; padding-top: 1rem; }
+}
+
+/* Custom scrollbars for data-dense clinical table */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f4;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Talla Baja: cards size to their container rather than the viewport. */
+.talla-chart-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: clamp(12px, 2vw, 24px); align-items: start; }
+.talla-alert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 12px; }
+.talla-dashboard article { min-width: 0; container-type: inline-size; overflow-wrap: anywhere; }
+.talla-dashboard .donut-responsive { flex-direction: column; }
+.talla-dashboard .donut-responsive > div:first-child { width: clamp(110px, 45cqi, 180px) !important; height: auto !important; aspect-ratio: 1; max-width: 100%; }
+.talla-dashboard .donut-responsive svg { width: 100%; height: auto; }
+@container (min-width: 420px) { .talla-dashboard .donut-responsive { flex-direction: row; } }
+@media (max-width: 640px) {
+ .talla-dashboard article { padding: 16px; }
+ .talla-patient-table { white-space: normal; table-layout: fixed; }
+ .talla-patient-table thead { display: none; }
+ .talla-patient-table tbody, .talla-patient-table tr { display: block; width: 100%; }
+ .talla-patient-table tr { padding: 8px 12px; border-top: 6px solid #f1f5f9; }
+ .talla-patient-table td { display: grid; grid-template-columns: minmax(90px, 36%) minmax(0, 1fr); gap: 10px; padding: 9px 0; overflow-wrap: anywhere; border-bottom: 1px solid #f1f5f9; }
+ .talla-patient-table td::before { content: attr(data-label); color: #64748b; font-size: 11px; font-weight: 600; font-family: var(--font-sans); }
+ .talla-patient-table td[colspan] { display: block; }
+ .talla-patient-table td[colspan]::before { display: none; }
+}
+
+.talla-overview-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; align-items:stretch; }
+.talla-overview-card { background:white; border:1px solid #e5e7eb; border-radius:22px; padding:20px; box-shadow:0 1px 3px #1e293b16; display:flex; flex-direction:column; gap:20px; min-width:0; }
+.talla-card-heading { display:flex; align-items:start; justify-content:space-between; gap:8px; }
+.talla-card-heading h2 { color:#26334d; text-transform:uppercase; font-size:12px; font-weight:700; line-height:1.5; }
+.talla-card-heading > span { color:#8da2bf; font-size:10px; text-align:right; }
+.talla-hero { display:flex; flex-direction:column; padding:24px; color:white; border-radius:22px; background:linear-gradient(135deg,#7c3aed,#a78bfa); box-shadow:0 2px 4px #7c3aed30; }
+.talla-card-footnote { margin-top:auto; padding-top:12px; border-top:1px solid #eef0f5; color:#8da2bf; font-size:10px; }
+.talla-dashboard .talla-overview-card .donut-responsive { flex-direction:column; flex:1; justify-content:center; }
+.talla-dashboard .talla-overview-card .donut-responsive > div:first-child { width:clamp(110px,55cqi,166px) !important; }
+.talla-age-bars { display:flex; align-items:end; gap:8px; flex:1; min-height:170px; padding-top:16px; }
+.talla-age-column { flex:1; min-width:0; text-align:center; display:flex; flex-direction:column; gap:7px; }
+.talla-age-column strong { font-size:11px; color:#526583; }
+.talla-age-column span { font-size:10px; line-height:1.4; color:#64748b; min-height:30px; }
+.talla-age-track { height:115px; background:#f1f5f9; border-radius:8px 8px 0 0; display:flex; align-items:end; overflow:hidden; }
+.talla-age-track > div { width:100%; border-radius:8px 8px 0 0; min-height:0; }
+.talla-row-alert { width:250px; white-space:normal; font-size:11px; border:1px solid #fcd34d; background:#fffbeb; color:#b45309; border-radius:10px; padding:5px 8px; }
+.talla-row-alert summary { cursor:pointer; line-height:1.45; }
+.talla-row-alert p { color:#64748b; margin-top:8px; line-height:1.6; }
+.talla-patient-table td[data-label="Alertas"] { min-width:280px; }
+@container (min-width: 320px) { .talla-dashboard .talla-overview-card .donut-responsive { flex-direction:row; } }
+@media(min-width:1600px) { .talla-overview-card { padding:24px; } }
+@media(max-width:1100px) { .talla-overview-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(max-width:600px) { .talla-overview-grid { grid-template-columns:minmax(0,1fr); gap:12px; } .talla-overview-card { padding:18px; } .talla-row-alert { width:auto; } .talla-patient-table td[data-label="Alertas"] { min-width:0; } }

@@ -1,0 +1,492 @@
+{
+  "2025": {
+    "total": 39,
+    "charts": [
+      {
+        "title": "Seguimiento",
+        "source": "Seguimiento",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 23
+          },
+          {
+            "label": "Sí",
+            "value": 16
+          }
+        ]
+      },
+      {
+        "title": "Educación recibida",
+        "source": "Educación recibida",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 24
+          },
+          {
+            "label": "Sí",
+            "value": 13
+          },
+          {
+            "label": "No queria recibir eduacion",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "title": "Valoración por Pediatría",
+        "source": "Revision por Pediatría",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 19
+          },
+          {
+            "label": "No",
+            "value": 20
+          }
+        ]
+      },
+      {
+        "title": "Reporte del carpograma",
+        "source": "Reporte del Carpograma",
+        "values": [
+          {
+            "label": "Reporte registrado",
+            "value": 11
+          },
+          {
+            "label": "No aplica",
+            "value": 9
+          },
+          {
+            "label": "Pendiente",
+            "value": 18
+          },
+          {
+            "label": "Sí",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "title": "Criterios de remisión a Endocrino",
+        "source": "Criterios de remisión a Endocrino",
+        "values": [
+          {
+            "label": "Sí",
+            "value": 39
+          }
+        ]
+      },
+      {
+        "title": "Tratamiento por Endocrino",
+        "source": "Tratamiento por Endocrino",
+        "values": [
+          {
+            "label": "No",
+            "value": 18
+          },
+          {
+            "label": "Sí",
+            "value": 21
+          }
+        ]
+      },
+      {
+        "title": "Valoración por Genética",
+        "source": "Valoración por Genética",
+        "values": [
+          {
+            "label": "No aplica",
+            "value": 34
+          },
+          {
+            "label": "Pendiente",
+            "value": 2
+          },
+          {
+            "label": "Sí",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "title": "Deserción",
+        "source": "Deserción",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 25
+          },
+          {
+            "label": "No aplica",
+            "value": 13
+          },
+          {
+            "label": "No",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "title": "Asistencia a citas",
+        "source": "Asistencia a citas del programa",
+        "values": [
+          {
+            "label": "Si asiste",
+            "value": 20
+          },
+          {
+            "label": "No asiste",
+            "value": 5
+          },
+          {
+            "label": "Pendiente",
+            "value": 8
+          },
+          {
+            "label": "No asiste a todas las citas",
+            "value": 2
+          },
+          {
+            "label": "Ninguna",
+            "value": 1
+          },
+          {
+            "label": "No ha podido sacar la cita",
+            "value": 3
+          }
+        ]
+      }
+    ],
+    "demographics": [
+      {
+        "title": "Sexo",
+        "source": "Sexo registrado en la base actualizada; los valores por verificar se conservan separados",
+        "values": [
+          {
+            "label": "Masculino",
+            "value": 26
+          },
+          {
+            "label": "Femenino",
+            "value": 11
+          },
+          {
+            "label": "Por verificar",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "title": "Edad",
+        "source": "Edad en formato años.meses; meses válidos de 0 a 11",
+        "values": [
+          {
+            "label": "0–5 años",
+            "value": 2
+          },
+          {
+            "label": "6–11 años",
+            "value": 21
+          },
+          {
+            "label": "12–17 años",
+            "value": 16
+          },
+          {
+            "label": "Edad por validar",
+            "value": 0
+          },
+          {
+            "label": "Sin información",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "title": "Régimen",
+        "source": "EPS/ASEGURADORA; únicamente menciones explícitas del régimen",
+        "values": [
+          {
+            "label": "Sin información",
+            "value": 9
+          },
+          {
+            "label": "Contributivo",
+            "value": 20
+          },
+          {
+            "label": "Subsidiado",
+            "value": 10
+          }
+        ]
+      },
+      {
+        "title": "Zona de residencia",
+        "source": "No hay columna de zona urbana/rural en el Excel",
+        "values": [
+          {
+            "label": "Urbana",
+            "value": 0
+          },
+          {
+            "label": "Rural",
+            "value": 0
+          },
+          {
+            "label": "Sin información",
+            "value": 39
+          }
+        ]
+      },
+      {
+        "title": "Vía de acceso",
+        "source": "Ambulatorio: clasificación indicada por la responsable del programa",
+        "values": [
+          {
+            "label": "Ambulatorio",
+            "value": 39
+          }
+        ]
+      }
+    ]
+  },
+  "2026": {
+    "total": 148,
+    "charts": [
+      {
+        "title": "Seguimiento",
+        "source": "Seguimiento",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 141
+          },
+          {
+            "label": "Sí",
+            "value": 6
+          },
+          {
+            "label": "Sin información",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "title": "Educación recibida",
+        "source": "Educación recibida",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 142
+          },
+          {
+            "label": "Sí",
+            "value": 5
+          },
+          {
+            "label": "No",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "title": "Valoración por Pediatría",
+        "source": "Valoracion por Pediatría",
+        "values": [
+          {
+            "label": "No",
+            "value": 145
+          },
+          {
+            "label": "Sí",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "title": "Reporte del carpograma",
+        "source": "Reporte del Carpograma",
+        "values": [
+          {
+            "label": "No aplica",
+            "value": 86
+          },
+          {
+            "label": "Sí",
+            "value": 62
+          }
+        ]
+      },
+      {
+        "title": "Criterios de remisión a Endocrino",
+        "source": "Criterios de remisión a Endocrino",
+        "values": [
+          {
+            "label": "Sí",
+            "value": 148
+          }
+        ]
+      },
+      {
+        "title": "Tratamiento por Endocrino",
+        "source": "Tratamiento por Endocrino",
+        "values": [
+          {
+            "label": "Sí",
+            "value": 147
+          },
+          {
+            "label": "No",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "title": "Valoración por Genética",
+        "source": "Valoración por Genética",
+        "values": [
+          {
+            "label": "No",
+            "value": 146
+          },
+          {
+            "label": "Sí",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "title": "Deserción",
+        "source": "Deserción",
+        "values": [
+          {
+            "label": "No aplica",
+            "value": 148
+          }
+        ]
+      },
+      {
+        "title": "Asistencia a citas",
+        "source": "Asistencia a citas del programa",
+        "values": [
+          {
+            "label": "Pendiente",
+            "value": 62
+          },
+          {
+            "label": "Si asiste",
+            "value": 81
+          },
+          {
+            "label": "No asiste",
+            "value": 3
+          },
+          {
+            "label": "Solo tuvo una cita de control",
+            "value": 1
+          },
+          {
+            "label": "No ha podido agendar la cita",
+            "value": 1
+          }
+        ]
+      }
+    ],
+    "demographics": [
+      {
+        "title": "Sexo",
+        "source": "Sexo registrado en la base actualizada; los valores por verificar se conservan separados",
+        "values": [
+          {
+            "label": "Masculino",
+            "value": 96
+          },
+          {
+            "label": "Femenino",
+            "value": 50
+          },
+          {
+            "label": "Por verificar",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "title": "Edad",
+        "source": "Edad en formato años.meses; meses válidos de 0 a 11",
+        "values": [
+          {
+            "label": "0–5 años",
+            "value": 26
+          },
+          {
+            "label": "6–11 años",
+            "value": 62
+          },
+          {
+            "label": "12–17 años",
+            "value": 40
+          },
+          {
+            "label": "Edad por validar",
+            "value": 18
+          },
+          {
+            "label": "Sin información",
+            "value": 2
+          }
+        ]
+      },
+      {
+        "title": "Régimen",
+        "source": "EPS/ASEGURADORA; únicamente menciones explícitas del régimen",
+        "values": [
+          {
+            "label": "Sin información",
+            "value": 124
+          },
+          {
+            "label": "Contributivo",
+            "value": 23
+          },
+          {
+            "label": "Subsidiado",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "title": "Zona de residencia",
+        "source": "No hay columna de zona urbana/rural en el Excel",
+        "values": [
+          {
+            "label": "Urbana",
+            "value": 0
+          },
+          {
+            "label": "Rural",
+            "value": 0
+          },
+          {
+            "label": "Sin información",
+            "value": 148
+          }
+        ]
+      },
+      {
+        "title": "Vía de acceso",
+        "source": "Ambulatorio: clasificación indicada por la responsable del programa",
+        "values": [
+          {
+            "label": "Ambulatorio",
+            "value": 148
+          }
+        ]
+      }
+    ]
+  }
+}
