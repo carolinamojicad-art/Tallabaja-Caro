@@ -215,7 +215,7 @@ export default function App() {
         onBackToCentros={handleBackToCentros}
         onExportExcel={handleExportExcel}
         onOpenMessages={() => {
-          if (selectedCentro?.id === TALLA_BAJA_CENTRO.id) { showToast('Este tablero muestra estadísticas agregadas, sin contactos de pacientes.'); return; }
+          if (selectedCentro?.id === TALLA_BAJA_CENTRO.id) { window.dispatchEvent(new CustomEvent('talla-baja-open-messages')); return; }
           setWhatsAppPreselectedPatient(null);
           setIsWhatsAppOpen(true);
         }}
