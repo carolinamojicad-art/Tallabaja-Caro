@@ -1,5 +1,28 @@
 // User-authorized fictional sample. No patient names or free-text observations are included.
 export interface TallaBajaPatient {
+  tratamientoEndocrino: string;
+  adherenciaOriginal: string;
+  criterioEndocrino: string;
+  carpograma: string;
+  genetica: string;
+  reporteGenetica: string;
+  educacion: string;
+  llamadaRealizada: string;
+  numeroLlamadas: string;
+  fechaIngreso: string;
+  atencionEndocrino: string;
+  somatropina: string;
+  origenEndocrino: string;
+  ultimaConsultaEndocrino: string;
+  proximaCitaEndocrino: string;
+  finFormula: string;
+  entregaMedicamento: string;
+  medicamentoHastaCita: string;
+  motivoNoAdherencia: string;
+  estatusPrograma: string;
+  fechaNacimiento: string;
+  igf1: string;
+  fechaSolicitudCarpograma: string;
   id: string;
   citaControlReferido?: string;
   documento: string;

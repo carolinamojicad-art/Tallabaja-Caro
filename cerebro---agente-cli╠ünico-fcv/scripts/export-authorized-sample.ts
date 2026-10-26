@@ -1,7 +1,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {getTallaBajaAlerts} from '../src/utils/tallaBajaAlerts';
 const source=JSON.parse(readFileSync(new URL('../src/data/tallaBajaPatients.local.json',import.meta.url),'utf8'));
-const keys=['documento','edad','sexo','peso','talla','imc','imcEdad','tallaEdad','eps','epsOriginal','regimen','seguimiento','proximoControl','viaAcceso','ultimaLlamada','ultimaLlamadaOriginal','asistencia','citasPendientes','proximoContactoOriginal','proximoContacto'];
+const keys=['tratamientoEndocrino','adherenciaOriginal','criterioEndocrino','carpograma','genetica','reporteGenetica','educacion','llamadaRealizada','numeroLlamadas','fechaIngreso','atencionEndocrino','somatropina','origenEndocrino','ultimaConsultaEndocrino','proximaCitaEndocrino','finFormula','entregaMedicamento','medicamentoHastaCita','motivoNoAdherencia','estatusPrograma','fechaNacimiento','igf1','fechaSolicitudCarpograma','documento','edad','sexo','peso','talla','imc','imcEdad','tallaEdad','eps','epsOriginal','regimen','seguimiento','proximoControl','viaAcceso','ultimaLlamada','ultimaLlamadaOriginal','asistencia','citasPendientes','proximoContactoOriginal','proximoContacto'];
 const result:Record<string,unknown[]>={};
 for(const year of ['2025','2026']) {
  result[year]=source[year].map((row:any,index:number)=>{
