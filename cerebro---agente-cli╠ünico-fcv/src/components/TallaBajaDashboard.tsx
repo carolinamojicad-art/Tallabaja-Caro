@@ -9,7 +9,7 @@ import { TallaBajaPatients } from './TallaBajaPatients';
 import { DonutChart } from './DonutChart';
 
 export const TALLA_BAJA_CENTRO: CentroExcelencia = {
-  id: 38, codigo: 'TB-01', nombre: 'Centro de Excelencia de Talla Baja', categoria: 'pediatrico',
+  id: 38, codigo: 'TB-01', nombre: 'Talla Baja', categoria: 'pediatrico',
   descripcion: 'TALLI · Seguimiento del programa, educación y ruta de atención. Base 2026: 148 pacientes registrados.',
   pacientesActivos: 148, pacientesTotales: 148, alertasActivas: 0, colorIcono: 'cyan', iconoNombre: 'Baby',
 };
@@ -27,7 +27,7 @@ export function TallaBajaDashboard() {
   const education = data.charts.find(c => c.title === 'Educación recibida')?.values.find(v => v.label === 'Sí')?.value || 0;
   return <section className="talla-dashboard page-enter space-y-6 min-w-0">
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-      <div className="flex items-center gap-3"><div className="p-3 rounded-2xl bg-cyan-100 text-cyan-700"><Baby className="w-7 h-7" /></div><div><p className="text-xs font-bold uppercase tracking-wider text-cyan-700">TALLI · Centro de Excelencia</p><h1 className="text-2xl font-bold text-slate-900">Talla Baja</h1><p className="text-sm text-slate-500">Base ficticia de muestra · pacientes identificados por ID y documento</p></div></div>
+      <div className="flex items-center gap-3"><div className="p-3 rounded-2xl bg-cyan-100 text-cyan-700"><Baby className="w-7 h-7" /></div><div><p className="text-xs font-bold uppercase tracking-wider text-cyan-700">TALLI · Seguimiento pediátrico</p><h1 className="text-2xl font-bold text-slate-900">Talla Baja</h1><p className="text-sm text-slate-500">Base ficticia de muestra · pacientes identificados por ID y documento</p></div></div>
       <label className="text-sm font-medium text-slate-700">Hoja de la base <select aria-label="Año de la base de Talla Baja" value={year} onChange={e => {setYear(e.target.value as '2025' | '2026');setEpsFilter(null);setCeFilter(null);}} className="ml-2 border border-slate-200 bg-white rounded-xl px-4 py-3"><option>2026</option><option>2025</option></select></label>
     </div>
     <TallaBajaOverview year={year} eps={epsFilter} onEps={setEpsFilter} />
